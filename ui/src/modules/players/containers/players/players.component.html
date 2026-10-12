@@ -1,12 +1,12 @@
 <sb-layout-dashboard>
-    <sb-dashboard-head title="Players" [hideBreadcrumbs]="false"></sb-dashboard-head>
+    <sb-dashboard-head title="玩家" [hideBreadcrumbs]="false"></sb-dashboard-head>
     <div class="col-md-12">
-        <h3>ID Calculator</h3>
+        <h3>ID 计算器</h3>
         <div class="row">
             <div class="col-md-6">
                 <div class="row">
                     <div class="col">
-                        Steam64 ID:
+                        Steam64 ID：
                     </div>
                     <div class="col">
                         <input class="form-control ml-2" type="text" name="Steam64ID"
@@ -15,7 +15,7 @@
                 </div>
                 <div class="row">
                     <div class="col">
-                        DayZ ID:
+                        DayZ ID：
                     </div>
                     <div class="col">
                         <input
@@ -26,7 +26,7 @@
                 </div>
                 <div class="row">
                     <div class="col">
-                        BE GUID:
+                        BE GUID：
                     </div>
                     <div class="col">
                         <input
@@ -36,26 +36,26 @@
                     </div>
                 </div>
             </div>
-            <div class="col-md-6" title="Either Steam64 or DayZ ID must be enetered to execute actions.">
+            <div class="col-md-6" title="执行操作前必须输入 Steam64 或 DayZ ID。">
                 <div class="row">
                     <div class="col">
                         <button class="btn btn-danger"
                             [disabled]="!steam64Input && !dayzId"
                             (click)="ban()"
-                        >BAN</button>
+                        >封禁</button>
                     </div>
                     <div class="col">
                         <button class="btn btn-danger"
                             [disabled]="!steam64Input && !dayzId"
                             (click)="unban()"
-                        >UNBAN</button>
+                        >解除封禁</button>
                     </div>
 
                     <div class="col">
                         <button class="btn btn-primary"
                             (click)="reloadRconBans()"
-                            title="Relaod RCON Bans"
-                        >RELOAD RCON BANS</button>
+                            title="重新加载 RCON 封禁列表"
+                        >重新加载 RCON 封禁</button>
                     </div>
                 </div>
                 <div class="row">
@@ -63,13 +63,13 @@
                         <button class="btn btn-primary"
                             [disabled]="!steam64Input && !dayzId"
                             (click)="whitelist()"
-                        >WHITELIST</button>
+                        >加入白名单</button>
                     </div>
                     <div class="col">
                         <button class="btn btn-primary"
                             [disabled]="!steam64Input && !dayzId"
                             (click)="unwhitelist()"
-                        >UNWHITELIST</button>
+                        >移出白名单</button>
                     </div>
                     <div class="col"></div>
                 </div>
@@ -78,13 +78,13 @@
                         <button class="btn btn-primary"
                             [disabled]="!steam64Input && !dayzId"
                             (click)="prio()"
-                        >PRIO</button>
+                        >设为优先</button>
                     </div>
                     <div class="col">
                         <button class="btn btn-primary"
                             [disabled]="!steam64Input && !dayzId"
                             (click)="unprio()"
-                        >UNPRIO</button>
+                        >取消优先</button>
                     </div>
                     <div class="col"></div>
                 </div>
@@ -93,7 +93,7 @@
     </div>
     <ul class="nav-tabs" [(activeId)]="activeTab" ngbNav #nav="ngbNav">
         <li [ngbNavItem]="1">
-            <a ngbNavLink>Current Players</a>
+            <a ngbNavLink>当前玩家</a>
             <ng-template ngbNavContent>
                 <sb-card background="card-no-top">
                     <!-- <div class="card-header">
@@ -109,7 +109,7 @@
             </ng-template>
         </li>
         <li [ngbNavItem]="2">
-            <a ngbNavLink>All Players</a>
+            <a ngbNavLink>全部玩家</a>
             <ng-template ngbNavContent>
                 <sb-card background="card-no-top">
                     <!-- <div class="card-header">
@@ -125,7 +125,7 @@
             </ng-template>
         </li>
         <li [ngbNavItem]="3">
-            <a ngbNavLink>Bans</a>
+            <a ngbNavLink>封禁</a>
             <ng-template ngbNavContent>
                 <sb-card background="card-no-top">
                     <div class="card-body">
@@ -149,7 +149,7 @@
             </ng-template>
         </li>
         <li [ngbNavItem]="4">
-            <a ngbNavLink>Whitelist</a>
+            <a ngbNavLink>白名单</a>
             <ng-template ngbNavContent>
                 <sb-card background="card-no-top">
                     <div class="card-body">
@@ -173,7 +173,7 @@
             </ng-template>
         </li>
         <li [ngbNavItem]="5">
-            <a ngbNavLink>Priority</a>
+            <a ngbNavLink>优先</a>
             <ng-template ngbNavContent>
                 <sb-card background="card-no-top">
                     <div class="card-body">
@@ -197,7 +197,7 @@
             </ng-template>
         </li>
         <li [ngbNavItem]="6">
-            <a ngbNavLink>RCON Bans</a>
+            <a ngbNavLink>RCON 封禁</a>
             <ng-template ngbNavContent>
                 <sb-card background="card-no-top">
                     <div class="card-body">
@@ -205,10 +205,10 @@
                             <thead>
                                 <tr>
                                     <th scope="col"><span>ID</span></th>
-                                    <th scope="col"><span>Ban</span></th>
-                                    <th scope="col"><span>Type</span></th>
-                                    <th scope="col"><span>Time</span></th>
-                                    <th scope="col"><span>Reason</span></th>
+                                    <th scope="col"><span>封禁</span></th>
+                                    <th scope="col"><span>类型</span></th>
+                                    <th scope="col"><span>时间</span></th>
+                                    <th scope="col"><span>原因</span></th>
                                 </tr>
                             </thead>
                             <tbody>

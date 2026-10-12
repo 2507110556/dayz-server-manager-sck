@@ -7,7 +7,7 @@ import { ColBase } from "./columns";
     selector: 'generic-list-renderer',
     template: `
         <ng-select
-               placeholder="Select item"
+               placeholder="选择条目"
                appendTo="body"
                [searchable]="false"
                [multiple]="true"
@@ -82,7 +82,7 @@ export class GenericListRenderer implements ICellRendererAngularComp {
         <ng-select [items]="dropdownList"
                bindLabel="label"
                bindValue="name"
-               placeholder="Select item"
+               placeholder="选择条目"
                appendTo="body"
                [searchable]="false"
                [multiple]="true"
@@ -148,7 +148,7 @@ export class CategoryRenderer implements ICellRendererAngularComp {
         <ng-select [items]="dropdownList"
                bindLabel="label"
                bindValue="name"
-               placeholder="Select item"
+               placeholder="选择条目"
                appendTo="body"
                [searchable]="false"
                [multiple]="true"
@@ -179,7 +179,7 @@ export class ValueRenderer extends CategoryRenderer implements ICellRendererAngu
         <ng-select [items]="dropdownList"
                bindLabel="name"
                bindValue="name"
-               placeholder="Select item"
+               placeholder="选择条目"
                appendTo="body"
                [searchable]="false"
                [multiple]="true"

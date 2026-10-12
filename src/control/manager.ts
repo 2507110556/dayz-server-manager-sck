@@ -114,7 +114,7 @@ export class Manager {
             port: this.config.serverPort,
             worldName: serverCfg.Missions.DayZ.template.split('.')[1],
             password: !!serverCfg.password,
-            battleye: !!serverCfg.BattlEye,
+            battleye: true,
             maxPlayers: serverCfg.maxPlayers,
             mapHost: this.config.mapHost,
         };

@@ -16,14 +16,14 @@ export const ROUTES: Routes = [
         canActivate: [],
         component: MapComponent,
         data: {
-            title: 'Map',
+            title: '地图',
             breadcrumbs: [
                 {
-                    text: 'Dashboard',
+                    text: '仪表盘',
                     link: '/dashboard',
                 },
                 {
-                    text: 'Map',
+                    text: '地图',
                     active: true,
                 },
             ],
@@ -34,14 +34,14 @@ export const ROUTES: Routes = [
         canActivate: [],
         component: MapLootComponent,
         data: {
-            title: 'MapLoot',
+            title: '地图战利品',
             breadcrumbs: [
                 {
-                    text: 'Dashboard',
+                    text: '仪表盘',
                     link: '/dashboard',
                 },
                 {
-                    text: 'MapLoot',
+                    text: '地图战利品',
                     active: true,
                 },
             ],

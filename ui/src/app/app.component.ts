@@ -10,7 +10,7 @@ import { filter } from 'rxjs/operators';
 })
 export class AppComponent {
 
-    public title = 'ServerManager';
+    public title = '服务器管理器';
 
     public constructor(public router: Router, private titleService: Title) {
         this.router.events
@@ -21,7 +21,7 @@ export class AppComponent {
                 while (snapshot.firstChild !== null) {
                     snapshot = snapshot.firstChild;
                 }
-                this.titleService.setTitle(snapshot.data['title'] || 'ServerManager');
+                this.titleService.setTitle(snapshot.data['title'] || '服务器管理器');
             });
     }
 

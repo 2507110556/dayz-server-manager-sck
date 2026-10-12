@@ -16,14 +16,14 @@ export const ROUTES: Routes = [
         canActivate: [],
         component: SettingsComponent,
         data: {
-            title: 'Settings',
+            title: '设置',
             breadcrumbs: [
                 {
-                    text: 'Dashboard',
+                    text: '仪表盘',
                     link: '/dashboard',
                 },
                 {
-                    text: 'Settings',
+                    text: '设置',
                     active: true,
                 },
             ],

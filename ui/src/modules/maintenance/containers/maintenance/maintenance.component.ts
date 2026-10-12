@@ -36,12 +36,12 @@ export class MaintenanceComponent implements OnInit {
         const success = await this.maintenance.updateServer(this.exactBooleanParse(validate));
         if (success) {
             this.outcomeBadge = {
-                message: 'Successfully updated server',
+                message: '服务器更新成功',
                 success: true,
             };
         } else {
             this.outcomeBadge = {
-                message: 'Failed to update server',
+                message: '服务器更新失败',
                 success: false,
             };
         }
@@ -51,12 +51,12 @@ export class MaintenanceComponent implements OnInit {
         const success = await this.maintenance.updateMods(this.exactBooleanParse(validate), this.exactBooleanParse(force));
         if (success) {
             this.outcomeBadge = {
-                message: 'Successfully updated mods',
+                message: '模组更新成功',
                 success: true,
             };
         } else {
             this.outcomeBadge = {
-                message: 'Failed to update mods',
+                message: '模组更新失败',
                 success: false,
             };
         }
@@ -66,12 +66,12 @@ export class MaintenanceComponent implements OnInit {
         const success = await this.maintenance.createBackup();
         if (success) {
             this.outcomeBadge = {
-                message: 'Successfully created backup',
+                message: '备份创建成功',
                 success: true,
             };
         } else {
             this.outcomeBadge = {
-                message: 'Failed to create backup',
+                message: '备份创建失败',
                 success: false,
             };
         }
@@ -81,12 +81,12 @@ export class MaintenanceComponent implements OnInit {
         const success = await this.maintenance.lockServer();
         if (success) {
             this.outcomeBadge = {
-                message: 'Successfully locked the server',
+                message: '服务器锁定成功',
                 success: true,
             };
         } else {
             this.outcomeBadge = {
-                message: 'Failed to lock the server',
+                message: '服务器锁定失败',
                 success: false,
             };
         }
@@ -96,12 +96,12 @@ export class MaintenanceComponent implements OnInit {
         const success = await this.maintenance.unlockServer();
         if (success) {
             this.outcomeBadge = {
-                message: 'Successfully unlocked the server',
+                message: '服务器解锁成功',
                 success: true,
             };
         } else {
             this.outcomeBadge = {
-                message: 'Failed to unlock the server',
+                message: '服务器解锁失败',
                 success: false,
             };
         }
@@ -111,12 +111,12 @@ export class MaintenanceComponent implements OnInit {
         const success = await this.maintenance.lockRestarts();
         if (success) {
             this.outcomeBadge = {
-                message: 'Successfully locked server restarts',
+                message: '服务器重启锁定成功',
                 success: true,
             };
         } else {
             this.outcomeBadge = {
-                message: 'Failed to lock server restarts',
+                message: '服务器重启锁定失败',
                 success: false,
             };
         }
@@ -126,12 +126,12 @@ export class MaintenanceComponent implements OnInit {
         const success = await this.maintenance.unlockRestarts();
         if (success) {
             this.outcomeBadge = {
-                message: 'Successfully unlocked server restarts',
+                message: '服务器重启解锁成功',
                 success: true,
             };
         } else {
             this.outcomeBadge = {
-                message: 'Failed to unlock server restarts',
+                message: '服务器重启解锁失败',
                 success: false,
             };
         }
@@ -141,12 +141,12 @@ export class MaintenanceComponent implements OnInit {
         const success = await this.maintenance.restartServer(force);
         if (success) {
             this.outcomeBadge = {
-                message: 'Successfully killed the server',
+                message: '服务器进程已结束',
                 success: true,
             };
         } else {
             this.outcomeBadge = {
-                message: 'Failed to kill the server',
+                message: '结束服务器进程失败',
                 success: false,
             };
         }
@@ -156,12 +156,12 @@ export class MaintenanceComponent implements OnInit {
         const success = await this.maintenance.kickAll();
         if (success) {
             this.outcomeBadge = {
-                message: 'Successfully kicked all players',
+                message: '已踢出所有玩家',
                 success: true,
             };
         } else {
             this.outcomeBadge = {
-                message: 'Failed to kick all players',
+                message: '踢出所有玩家失败',
                 success: false,
             };
         }
@@ -171,12 +171,12 @@ export class MaintenanceComponent implements OnInit {
         const success = await this.maintenance.shutdown();
         if (success) {
             this.outcomeBadge = {
-                message: 'Successfully executed RCON shutdown',
+                message: 'RCON 关机命令执行成功',
                 success: true,
             };
         } else {
             this.outcomeBadge = {
-                message: 'Failed to execute RCON shutdown',
+                message: 'RCON 关机命令执行失败',
                 success: false,
             };
         }
@@ -189,12 +189,12 @@ export class MaintenanceComponent implements OnInit {
         const success = await this.maintenance.sendMessage(msg.trim());
         if (success) {
             this.outcomeBadge = {
-                message: 'Successfully sent global message',
+                message: '全局消息发送成功',
                 success: true,
             };
         } else {
             this.outcomeBadge = {
-                message: 'Failed to send global message',
+                message: '全局消息发送失败',
                 success: false,
             };
         }

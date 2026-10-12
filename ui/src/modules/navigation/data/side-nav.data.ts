@@ -2,11 +2,11 @@ import { SideNavItems, SideNavSection } from '../models';
 
 export const sideNavSections: SideNavSection[] = [
     {
-        text: 'CORE',
+        text: '核心',
         items: ['dashboard'],
     },
     {
-        text: 'DETAIL',
+        text: '详情',
         items: [
             'system',
             'players',
@@ -19,7 +19,7 @@ export const sideNavSections: SideNavSection[] = [
         ],
     },
     {
-        text: 'Files',
+        text: '文件',
         items: [
             'types',
         ],
@@ -29,52 +29,52 @@ export const sideNavSections: SideNavSection[] = [
 export const sideNavItems: SideNavItems = {
     dashboard: {
         icon: 'tachometer-alt',
-        text: 'Dashboard',
+        text: '仪表盘',
         link: '/dashboard',
     },
     system: {
         icon: 'chart-area',
-        text: 'System',
+        text: '系统',
         link: '/dashboard/system',
     },
     players: {
         icon: 'user',
-        text: 'Players',
+        text: '玩家',
         link: '/dashboard/players',
     },
     audit: {
         icon: 'exclamation-triangle',
-        text: 'Audit',
+        text: '审计',
         link: '/dashboard/audit',
     },
     logs: {
         icon: 'clipboard-list',
-        text: 'Logs',
+        text: '日志',
         link: '/dashboard/logs',
     },
     maintenance: {
         icon: 'tools',
-        text: 'Maintenance',
+        text: '维护',
         link: '/dashboard/maintenance',
     },
     settings: {
         icon: 'cogs',
-        text: 'Settings',
+        text: '设置',
         link: '/dashboard/settings',
     },
     map: {
         icon: 'map',
-        text: 'Map',
+        text: '地图',
         link: '/dashboard/map',
     },
     maploot: {
         icon: 'map',
-        text: 'MapLoot',
+        text: '地图战利品',
         link: '/dashboard/map/maploot',
     },
     types: {
         icon: 'wrench',
-        text: 'Types',
+        text: '类型',
         link: '/dashboard/files/types',
     },
 };

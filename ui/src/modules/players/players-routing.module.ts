@@ -15,14 +15,14 @@ export const ROUTES: Routes = [
         canActivate: [],
         component: PlayersComponent,
         data: {
-            title: 'Players',
+            title: '玩家',
             breadcrumbs: [
                 {
-                    text: 'Dashboard',
+                    text: '仪表盘',
                     link: '/dashboard',
                 },
                 {
-                    text: 'Players',
+                    text: '玩家',
                     active: true,
                 },
             ],

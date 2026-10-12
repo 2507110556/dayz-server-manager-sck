@@ -47,7 +47,7 @@ export class SettingsComponent implements OnInit {
             () => {
                 this.loading = false;
                 this.outcomeBadge = {
-                    message: 'Successfully updated config',
+                    message: '配置更新成功',
                     success: true,
                 };
             },
@@ -55,7 +55,7 @@ export class SettingsComponent implements OnInit {
                 console.error(err);
                 this.loading = false;
                 this.outcomeBadge = {
-                    message: 'Failed to update config. See manager logs for details',
+                    message: '配置更新失败，请查看管理器日志了解详情',
                     success: false,
                 };
             },
@@ -107,7 +107,7 @@ export class SettingsComponent implements OnInit {
     }
 
     private getServerCfgProps(config: Config): Property[] {
-        const fixedKeys = ['motd', 'motdInterval', 'Missions'] as ServerCfgKey[];
+        const fixedKeys = ['Missions'] as ServerCfgKey[];
 
         const known = (this.schema.definitions.ServerCfg.propertyOrder as ServerCfgKey[])
             .filter((x) => {
@@ -143,7 +143,7 @@ export class SettingsComponent implements OnInit {
     public addCustomServerCfgEntry(name: string, type: 'string' | 'number'): void {
         if (!name || name.length < 3) {
             this.outcomeBadge = {
-                message: 'Custom field names must be at least 3 characters long',
+                message: '自定义字段名至少需要 3 个字符',
                 success: false,
             };
             return;

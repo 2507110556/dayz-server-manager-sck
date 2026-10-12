@@ -14,10 +14,10 @@ export const ROUTES: Routes = [
     {
         path: '',
         data: {
-            title: 'Dashboard',
+            title: '仪表盘',
             breadcrumbs: [
                 {
-                    text: 'Dashboard',
+                    text: '仪表盘',
                     active: true,
                 },
             ],

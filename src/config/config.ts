@@ -4,59 +4,46 @@ import 'reflect-metadata';
 
 export class ServerCfg {
 
-    // General
+    // 基础
 
     /**
-     * Server name
+     * 服务器名称
      *
      * @required
      */
     @Reflect.metadata('config-required', true)
-    public hostname: string = 'EXAMPLE NAME';
+    public hostname: string = '[生存狂] 三图互通 | 搜打撤 | AI | 技能 | 副本';
 
     /**
-     * Maximum amount of players
-     *
-     * @required
-     */
-    @Reflect.metadata('config-required', true)
-    public maxPlayers: number = 60;
-
-    /**
-     * Message of the day displayed in the in-game chat
-     */
-    public motd: string[] = [];
-
-    /**
-     * Time interval (in seconds) between each message
-     */
-    public motdInterval: number = 1;
-
-
-    // Security
-
-    /**
-     * Password to connect to the server
+     * 连接到服务器所需的密码
      */
     public password: string = '';
 
     /**
-     * Password to become a server admin
+     * 成为服务器管理员所需的密码
      */
     public passwordAdmin: string = '';
 
     /**
-     * Enable/disable whitelist (value 0-1)
+     * 服务器描述，显示在客户端的服务器列表中
+     */
+    public description: string = '这里是塔科夫模式下的DayZ疫区突围服务器，主图车臣副图冰岛、陨落，获取高级物资撤离回车臣尼亚';
+
+    /**
+     * 启用/禁用白名单 (0-1)
      */
     public enableWhitelist: 0 | 1 = 0;
 
     /**
-     * Use BattlEye
+     * 最大玩家数
+     *
+     * @required
      */
-    public BattlEye: 0 | 1 = 1;
+    @Reflect.metadata('config-required', true)
+    public maxPlayers: number = 40;
 
     /**
-     * Verifies .pbos against .bisign files. (only 2 is supported)
+     * 校验 .pbo 文件与 .bisign 签名文件是否匹配（仅支持 2）
      *
      * @required
      */
@@ -64,187 +51,116 @@ export class ServerCfg {
     public verifySignatures: 0 | 1 | 2 = 2;
 
     /**
-     * When enabled, the server will allow the connection only to clients with same the .exe revision as the server (value 0-1)
+     * 启用后，服务器只允许与自身 .exe 版本一致的客户端连接 (0-1)
      */
     public forceSameBuild: 0 | 1 = 1;
 
-    /**
-     * Communication protocol used with game server (use only number 1)
-     */
-    public guaranteedUpdates: 1 = 1;
+
+    // 语音
 
     /**
-     * if set to 1 it will enable connection of clients with "-filePatching" launch parameter enabled
-     */
-    public allowFilePatching: 0 | 1 = 0;
-
-    /**
-     * defines Steam query port
-     * should fix the issue with server not being visible in client server browser
-     */
-    public steamQueryPort: number = 2305;
-
-    /**
-     * Max ping value until server kick the user (value in milliseconds)
-     */
-    public maxPing: number = 200;
-
-    /**
-     * enable speedhack detection, values 1-10 (1 strict, 10 benevolent, can be float)
-     */
-    public speedhackDetection: number = 1;
-
-    // VON
-
-    /**
-     * Enable/disable voice over network (value 0-1)
+     * 启用/禁用网络语音 (0-1)
      */
     public disableVoN: 0 | 1 = 0;
 
     /**
-     * Voice over network codec quality, the higher the better (values 0-30)
+     * 网络语音编解码质量，数值越高效果越好 (0-30)
      */
     public vonCodecQuality: number = 20;
 
 
-    // Game
+    // 服务器标识
 
     /**
-     * Toggles the 3rd person view for players (value 0-1)
+     * 私有服务器的分片标识（六个字母数字字符）
+     */
+    public shardId: string = '123abc';
+
+    /**
+     * Steam 查询端口
+     */
+    public steamQueryPort: number = 27026;
+
+
+    // 游戏
+
+    /**
+     * 切换玩家第三人称视角 (0-1)
      */
     public disable3rdPerson: 0 | 1 = 0;
 
     /**
-     * Toggles the cross-hair (value 0-1)
+     * 切换准星 (0-1)
      */
-    public disableCrosshair: 0 | 1 = 0;
+    public disableCrosshair: 0 | 1 = 1;
 
     /**
-     * set to 1 to disable damage/destruction of fence and watchtower
-     */
-    public disableBaseDamage: 0 | 1 = 0;
-
-    /**
-     * set to 1 to disable damage/destruction of tents, barrels, wooden crate and seachest
-     */
-    public disableContainerDamage: 0 | 1 = 0;
-
-    /**
-     * set to 1 to disable the respawn dialog (new characters will be spawning as random)
-     */
-    public disableRespawnDialog: 0 | 1 = 0;
-
-    /**
-     * Sets the respawn delay (in seconds) before the player is able to get a new character on the server, when the previous one is dead
-     */
-    public respawnTime: number = 5;
-
-    /**
-     * shows info about the character using a debug window in a corner of the screen (value 0-1)
-     */
-    public enableDebugMonitor: 0 | 1 = 1;
-
-
-    // Time and weather
-
-    /**
-     * Disables personal light for all clients connected to server
+     * 禁用所有连接服务器的客户端的个人光源
      */
     public disablePersonalLight: 0 | 1 = 1;
 
     /**
-     * 0 for brighter night setup
-     * 1 for darker night setup
+     * 0 为更明亮的夜晚设置，1 为更黑暗的夜晚设置
      */
     public lightingConfig: 0 | 1 = 0;
 
-    /**
-     * Initial in-game time of the server.
-     * "SystemTime" means the local time of the machine.
-     * Another possibility is to set the time to some value in "YYYY/MM/DD/HH/MM" format, f.e. "2015/4/8/17/23".
-     */
-    public serverTime: string = 'SystemTime';
+
+    // 时间
 
     /**
-     * Accelerated Time (value 0-24)
-     * This is a time multiplier for in-game time.
-     * In this case, the time would move 24 times faster than normal, so an entire day would pass in one hour.
+     * 服务器的初始游戏内时间。
+     * "SystemTime" 表示使用机器本地时间。
+     * 也可以设置为 "YYYY/MM/DD/HH/MM" 格式的具体时间，例如 "2015/4/8/17/23"。
      */
-    public serverTimeAcceleration: number = 12;
+    public serverTime: string = '2011/01/11/07/10';
 
     /**
-     * Accelerated Nigh Time - The numerical value being a multiplier (0.1-64) and also multiplied by serverTimeAcceleration value.
-     * Thus, in case it is set to 4 and serverTimeAcceleration is set to 2, night time would move 8 times faster than normal.
-     * An entire night would pass in 3 hours.
+     * 加速时间 (0-24)
+     * 这是游戏内时间的加速倍数。例如设置为 24，游戏时间将比正常快 24 倍，一整天将在一小时内度过。
      */
-    public serverNightTimeAcceleration: number = 1;
+    public serverTimeAcceleration: number = 5;
 
     /**
-     * Persistent Time (value 0-1)
-     * The actual server time is saved to storage, so when active, the next server start will use the saved time value.
+     * 夜间加速 - 数值为倍率 (0.1-64)，并与 serverTimeAcceleration 的值相乘。
+     * 例如设置为 4 且 serverTimeAcceleration 设置为 2 时，夜间时间将比正常快 8 倍，整夜约 3 小时度过。
+     */
+    public serverNightTimeAcceleration: number = 20;
+
+    /**
+     * 时间持久化 (0-1)
+     * 实际服务器时间会保存到存储中，启用后下一次服务器启动将使用已保存的时间值。
      */
     public serverTimePersistent: 0 | 1 = 0;
 
 
-    // Performance
+    // 网络与性能
 
     /**
-     * The number of players concurrently processed during the login process.
-     * Should prevent massive performance drop during connection when a lot of people are connecting at the same time.
+     * Steam 协议最大数据包大小
+     */
+    public steamProtocolMaxDataSize: number = 4000;
+
+    /**
+     * 与游戏服务器通信使用的协议（只能使用 1）
+     */
+    public guaranteedUpdates: 1 = 1;
+
+    /**
+     * 登录过程中并发处理的玩家数量。
+     * 可防止大量玩家同时连接时出现严重的性能下降。
      */
     public loginQueueConcurrentPlayers: number = 5;
 
     /**
-     * The maximum number of players that can wait in login queue
+     * 登录队列中等待的最大玩家数量
      */
     public loginQueueMaxPlayers: number = 500;
 
-    /**
-     * Set limit of how much players can be simulated per frame (for server performance gain)
-     */
-    public simulatedPlayersBatch: number = 20;
+
+    // 持久化
 
     /**
-     * enables multi-threaded processing of server's replication system
-     * number of worker threads is derived by settings of jobsystem in dayzSettings.xml by "maxcores" and "reservedcores" parameters (value 0-1)
-     */
-    public multithreadedReplication: 0 | 1 = 1;
-
-    /**
-     * network bubble distance for spawn of close objects with items in them (f.i. backpacks), set in meters, default value if not set is 20
-     */
-    public networkRangeClose: number = 20;
-
-    /**
-     * network bubble distance for spawn (despawn +10%) of near inventory items objects, set in meters, default value if not set is 150
-     */
-    public networkRangeNear: number = 150;
-
-    /**
-     * network bubble distance for spawn (despawn +10%) of far objects (other than inventory items), set in meters, default value if not set is 1000
-     */
-    public networkRangeFar: number = 1000;
-
-    /**
-     * network bubble distance for spawn of effects (currently only sound effects), set in meters, default value if not set is 4000
-     */
-    public networkRangeDistantEffect: number = 4000;
-
-    /**
-     * highest terrain render distance on server (if higher than "viewDistance=" in DayZ client profile, clientside parameter applies)
-     */
-    public defaultVisibility: number = 1375;
-
-    /**
-     * highest object render distance on server (if higher than "preferredObjectViewDistance=" in DayZ client profile, clientside parameter applies)
-     */
-    public defaultObjectViewDistance: number = 1375;
-
-
-    // Persistency
-
-    /**
-     * DayZ server instance id, to identify the number of instances per box and their storage folders with persistence files
+     * DayZ 服务器实例 ID，用于标识每台机器上的实例数量及其持久化文件的存储文件夹
      *
      * @required
      */
@@ -252,68 +168,38 @@ export class ServerCfg {
     public instanceId = 1;
 
     /**
-     * Disable houses/doors persistence (value true/false), usable in case of problems with persistence
-     */
-    public storeHouseStateDisabled: boolean = false;
-
-    /**
-     * Checks if the persistence files are corrupted and replaces corrupted ones with empty ones (value 0-1)
+     * 检查持久化文件是否损坏，并将损坏的文件替换为空白文件 (0-1)
      */
     public storageAutoFix: 0 | 1 = 1;
 
 
-    // Logs
+    // 日志
 
     /**
-     * Format for timestamps in the .rpt file (value Full/Short)
-     */
-    public timeStampFormat: 'Full' | 'Short' = 'Short';
-
-    /**
-     * Logs the average server FPS (value in seconds), needs to have ''-doLogs'' launch parameter active
+     * 记录服务器平均 FPS（单位：秒），需要启用 '-doLogs' 启动参数
      */
     public logAverageFps: number = 30;
 
     /**
-     * Logs the server memory usage (value in seconds), needs to have the ''-doLogs'' launch parameter active
+     * 记录服务器内存使用情况（单位：秒），需要启用 '-doLogs' 启动参数
      */
     public logMemory: number = 30;
 
     /**
-     * Logs the count of currently connected players (value in seconds), needs to have the ''-doLogs'' launch parameter active
+     * 记录当前连接的玩家数量（单位：秒），需要启用 '-doLogs' 启动参数
      */
     public logPlayers: number = 30;
 
     /**
-     * Saves the server console log to a file in the folder with the other server logs
+     * 1 - 启用 cfgGameplayFile
      */
-    public logFile: string = 'server_console.log';
-
-    /**
-     * 1 - log player hits only / 0 - log all hits ( animals/infected )
-     */
-    public adminLogPlayerHitsOnly: 0 | 1 = 0;
-
-    /**
-     * 1 - log placement action ( traps, tents )
-     */
-    public adminLogPlacement: 0 | 1 = 0;
-
-    /**
-     * 1 - log basebuilding actions ( build, dismantle, destroy )
-     */
-    public adminLogBuildActions: 0 | 1 = 0;
-
-    /**
-     * 1 - log periodic player list with position every 5 minutes
-     */
-    public adminLogPlayerList: 0 | 1 = 0;
+    public enableCfgGameplayFile: 0 | 1 = 1;
 
 
     /**
-     * Mission to load on server startup. <MissionName>.<TerrainName>
-     * Vanilla mission: dayzOffline.chernarusplus
-     * DLC mission: dayzOffline.enoch
+     * 服务器启动时加载的任务。<任务名>.<地形名>
+     * 原版任务：dayzOffline.chernarusplus
+     * DLC 任务：dayzOffline.enoch
      *
      * @required
      */
@@ -328,11 +214,6 @@ export class ServerCfg {
         },
     };
 
-
-    /**
-     * 1 - enable cfgGameplayFile
-     */
-    public enableCfgGameplayFile: 0 | 1 = 0;
 
 }
 

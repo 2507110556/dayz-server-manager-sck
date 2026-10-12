@@ -22,7 +22,7 @@ export const ROUTES: Routes = [
         canActivate: [],
         component: Error401Component,
         data: {
-            title: 'Error 401 - SB Admin Angular',
+            title: '错误 401',
         } as SBRouteData,
     },
     {
@@ -30,7 +30,7 @@ export const ROUTES: Routes = [
         canActivate: [],
         component: Error404Component,
         data: {
-            title: 'Error 404 - SB Admin Angular',
+            title: '错误 404',
         } as SBRouteData,
     },
     {
@@ -38,7 +38,7 @@ export const ROUTES: Routes = [
         canActivate: [],
         component: Error500Component,
         data: {
-            title: 'Error 500 - SB Admin Angular',
+            title: '错误 500',
         } as SBRouteData,
     },
     {

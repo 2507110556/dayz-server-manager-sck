@@ -22,18 +22,18 @@ export const ROUTES: Routes = [
         canActivate: [],
         component: TypesComponent,
         data: {
-            title: 'Files',
+            title: '文件',
             breadcrumbs: [
                 {
-                    text: 'Dashboard',
+                    text: '仪表盘',
                     link: '/dashboard',
                 },
                 {
-                    text: 'Files',
+                    text: '文件',
                     link: '/files',
                 },
                 {
-                    text: 'Types',
+                    text: '类型',
                     active: true,
                 },
             ],

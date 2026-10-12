@@ -1,8 +1,8 @@
 <sb-layout-dashboard>
-    <sb-dashboard-head title="Maintenance" [hideBreadcrumbs]="false"></sb-dashboard-head>
+    <sb-dashboard-head title="维护" [hideBreadcrumbs]="false"></sb-dashboard-head>
     <sb-card>
         <div class="card-header">
-            <fa-icon class="mr-1" [icon]='["fas", "calendar-alt"]'></fa-icon>Maintenance
+            <fa-icon class="mr-1" [icon]='["fas", "calendar-alt"]'></fa-icon>维护
         </div>
         <div class="card-body">
 
@@ -12,12 +12,12 @@
                 {{ outcomeBadge.message }}
             </ngb-alert>
 
-            <strong>Updates / Backups</strong>
+            <strong>更新 / 备份</strong>
             <hr>
             <div class="row spaced">
                 <div class="col-md-3">
                     <button class="btn btn-primary" (click)="updateServer(validateServerUpdate.value)">
-                        Update Server
+                        更新服务器
                     </button>
                 </div>
                 <div class="col-md-3">
@@ -32,7 +32,7 @@
             <div class="row spaced">
                 <div class="col-md-3">
                     <button class="btn btn-primary" (click)="updateMods(validateModUpdate.value, forceModUpdate.value)">
-                        Update Mods
+                        更新模组
                     </button>
                 </div>
                 <div class="col-md-3">
@@ -44,9 +44,9 @@
                     </div>
                 </div>
                 <div class="col-md-3">
-                    <div title="Disables mod meta data checks and always triggers mod update.">
+                    <div title="禁用模组元数据检查并始终触发模组更新。">
                         <label for="force-mod-update" class="mr-1">
-                            Force?
+                            强制？
                         </label>
                         <input #forceModUpdate id="force-mod-update" type="checkbox" [value]="false">
                     </div>
@@ -55,31 +55,31 @@
             <div class="row spaced">
                 <div class="col-md-3">
                     <button class="btn btn-primary" (click)="createBackup()">
-                        Create Backup
+                        创建备份
                     </button>
                 </div>
             </div>
-            <strong>Restarts</strong>
+            <strong>重启</strong>
             <hr>
             <div class="row spaced">
                 <div class="col-md-3">
                     <button class="btn btn-primary" (click)="restartServer(false)">
-                        Restart Server
+                        重启服务器
                     </button>
                 </div>
                 <div class="col-md-3">
-                    <button class="btn btn-primary" title="Kills the server immediately (Use this only when its totally stuck)" (click)="restartServer(true)">
-                        Restart Server (Force)
+                    <button class="btn btn-primary" title="立即结束服务器进程（仅当服务器完全卡死时使用）" (click)="restartServer(true)">
+                        重启服务器（强制）
                     </button>
                 </div>
                 <div class="col-md-3">
-                    <button class="btn btn-primary" title="Prevents the manager from restarting the server until re-enabled" (click)="lockRestarts()">
-                        Lock Server Restart
+                    <button class="btn btn-primary" title="在重新启用前阻止管理器重启服务器" (click)="lockRestarts()">
+                        锁定服务器重启
                     </button>
                 </div>
                 <div class="col-md-3">
                     <button class="btn btn-primary" (click)="unlockRestarts()">
-                        UnLock Server Restart
+                        解锁服务器重启
                     </button>
                 </div>
             </div>
@@ -88,22 +88,22 @@
             <div class="row spaced">
                 <div class="col-md-3">
                     <button class="btn btn-primary" (click)="lockServer()">
-                        Lock Server
+                        锁定服务器
                     </button>
                 </div>
                 <div class="col-md-3">
                     <button class="btn btn-primary" (click)="unlockServer()">
-                        UnLock Server
+                        解锁服务器
                     </button>
                 </div>
                 <div class="col-md-3">
                     <button class="btn btn-primary" (click)="kickAll()">
-                        Kick All
+                        踢出所有玩家
                     </button>
                 </div>
                 <div class="col-md-3">
                     <button class="btn btn-primary" (click)="shutdown()">
-                        Shutdown
+                        关机
                     </button>
                 </div>
             </div>
@@ -113,7 +113,7 @@
                 </div>
                 <div class="col-md-3">
                     <button class="btn btn-primary" (click)="sendMessage(globalMessageInput.value); globalMessageInput.value = '';">
-                        Send Global Message
+                        发送全局消息
                     </button>
                 </div>
             </div>

@@ -52,7 +52,7 @@ export class MapLootComponent extends MapComponent implements OnInit, OnDestroy 
     }
 
     public resetClicked(): void {
-        if (confirm('Reset?')) {
+        if (confirm('确定重置？')) {
             void this.loadData();
         }
     }
@@ -272,7 +272,7 @@ export class MapLootComponent extends MapComponent implements OnInit, OnDestroy 
     }
 
     public async onSubmit(): Promise<void> {
-        if (!confirm('Submit?')) {
+        if (!confirm('确定提交？')) {
             return;
         }
         if (this.submitting) return;
@@ -289,13 +289,13 @@ export class MapLootComponent extends MapComponent implements OnInit, OnDestroy 
             // }
             this.outcomeBadge = {
                 success: true,
-                message: 'Submitted successfully',
+                message: '提交成功',
             };
         } catch (e: any) {
             console.error(e);
             this.outcomeBadge = {
                 success: false,
-                message: `Failed to submit: ${e.message}`,
+                message: `提交失败：${e.message}`,
             };
         }
 

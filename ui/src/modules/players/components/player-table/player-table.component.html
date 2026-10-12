@@ -1,11 +1,11 @@
 <form>
     <div class="form-group form-inline">
-        Search:
+        搜索：
         <input class="form-control ml-2" type="text" name="searchTerm" #searchTerm
             (change)="playerService.updateState({ searchTerm: searchTerm.value })" />
-        <span class="ml-3" *ngIf="playerService.loading$ | async">Loading...</span>
+        <span class="ml-3" *ngIf="playerService.loading$ | async">加载中...</span>
     </div>
-    <span>SteamID, DayZID and character values might only be available when the player is online.</span>
+    <span>SteamID、DayZID 和角色数值仅在玩家在线时可用。</span>
     <table class="table table-striped">
         <thead>
             <tr>
@@ -13,7 +13,7 @@
                     <span>#</span>
                     <sb-sort-icon *ngIf='(playerService.state$ | async)!.sortColumn === "id"' [direction]="(playerService.state$ | async)!.sortDirection"></sb-sort-icon>
                 </th>
-                <th scope="col" sbSortable="name" (sort)="onSort($event)"><span>Name</span>
+                <th scope="col" sbSortable="name" (sort)="onSort($event)">                    <span>名称</span>
                     <sb-sort-icon *ngIf='(playerService.state$ | async)!.sortColumn === "name"' [direction]="(playerService.state$ | async)!.sortDirection"></sb-sort-icon>
                 </th>
                 <th scope="col"><span>BE GUID</span></th>
@@ -23,11 +23,11 @@
                 </th>
                 <th scope="col"><span>SteamID</span></th>
                 <th scope="col"><span>DayZID</span></th>
-                <th scope="col"><span>Damage</span></th>
-                <th scope="col"><span>Position</span></th>
-                <th scope="col"><span>Banned</span></th>
-                <th scope="col"><span>Whitelisted</span></th>
-                <th scope="col"><span>Prio</span></th>
+                <th scope="col"><span>伤害</span></th>
+                <th scope="col"><span>位置</span></th>
+                <th scope="col"><span>被禁止</span></th>
+                <th scope="col"><span>已白名单</span></th>
+                <th scope="col"><span>优先</span></th>
             </tr>
         </thead>
         <tbody>
@@ -65,13 +65,13 @@
                     {{ player.position }}
                 </td>
                 <td>
-                    {{ player.banned ? 'YES' : 'NO' }}
+                    {{ player.banned ? '是' : '否' }}
                 </td>
                 <td>
-                    {{ player.whitelisted ? 'YES' : 'NO' }}
+                    {{ player.whitelisted ? '是' : '否' }}
                 </td>
                 <td>
-                    {{ player.prio ? 'YES' : 'NO' }}
+                    {{ player.prio ? '是' : '否' }}
                 </td>
             </tr>
         </tbody>
@@ -88,9 +88,9 @@
             [ngModel]="(playerService.state$ | async)!.pageSize"
             (ngModelChange)="playerService.updateState({ pageSize: $event })"
         >
-            <option [ngValue]="10">10 items per page</option>
-            <option [ngValue]="20">20 items per page</option>
-            <option [ngValue]="MAX_ITEMS">All</option>
+            <option [ngValue]="10">每页 10 条</option>
+            <option [ngValue]="20">每页 20 条</option>
+            <option [ngValue]="MAX_ITEMS">全部</option>
         </select>
     </div>
 </form>

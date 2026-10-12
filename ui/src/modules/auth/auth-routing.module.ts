@@ -11,7 +11,7 @@ export const ROUTES: Routes = [
         path: '',
         component: LoginComponent,
         data: {
-            title: 'Login',
+            title: '登录',
         } as SBRouteData,
     },
 ];

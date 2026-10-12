@@ -11,7 +11,7 @@
             <div class="d-flex btn-group"
                  style="margin-top: -1rem; margin-left: -1rem; margin-right: -1rem; margin-bottom: 0.5rem;"
             >
-                <label style="margin-bottom: 0; margin-right: 0.5rem; align-self: center;">Search:</label>
+                <label style="margin-bottom: 0; margin-right: 0.5rem; align-self: center;">搜索：</label>
                 <input class="form-control"
                        style="border-top-right-radius: 0; border-bottom-right-radius: 0;"
                        (keyup)="$event.key === 'Enter' ? search(searchInput.value) : null"
@@ -42,7 +42,7 @@
         </div>
         <div class="d-flex flex-row">
             <div class="d-flex flex-row ml-1 mr-1" style="align-items: center;">
-                <label class="form-label" style="white-space: nowrap;">Create Backup</label>
+                <label class="form-label" style="white-space: nowrap;">创建备份</label>
                 <input type="checkbox" class="form-control form-control-sm mx-1"
                        [(ngModel)]="withBackup"
                        [ngModelOptions]="{standalone: true}"
@@ -50,7 +50,7 @@
                 >
             </div>
             <div class="d-flex flex-row ml-1 mr-1" style="align-items: center;">
-                <label class="form-label" style="white-space: nowrap;">Restart Server</label>
+                <label class="form-label" style="white-space: nowrap;">重启服务器</label>
                 <input type="checkbox" class="form-control form-control-sm mx-1"
                        [(ngModel)]="withRestart"
                        [ngModelOptions]="{standalone: true}"
@@ -62,13 +62,13 @@
                     [disabled]="submitting"
             >
                 <fa-icon *ngIf="submitting" [icon]='["fas", "spinner"]' [classes]="['fa-spin']"></fa-icon>
-                Submit
+                提交
             </button>
             <button type="button" class="btn btn-primary ml-1 mr-1"
                     (click)="resetClicked()"
                     [disabled]="submitting"
             >
-                Reset
+                重置
             </button>
         </div>
     </div>

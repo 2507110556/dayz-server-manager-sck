@@ -15,14 +15,14 @@ export const ROUTES: Routes = [
         canActivate: [],
         component: MaintenanceComponent,
         data: {
-            title: 'Maintenance',
+            title: '维护',
             breadcrumbs: [
                 {
-                    text: 'Dashboard',
+                    text: '仪表盘',
                     link: '/dashboard',
                 },
                 {
-                    text: 'Maintenance',
+                    text: '维护',
                     active: true,
                 },
             ],

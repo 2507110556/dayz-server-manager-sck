@@ -1,5 +1,5 @@
 <sb-layout-dashboard class="types-component">
-    <sb-dashboard-head title="Files" [hideBreadcrumbs]="false"></sb-dashboard-head>
+    <sb-dashboard-head title="文件" [hideBreadcrumbs]="false"></sb-dashboard-head>
     <sb-card background="h-100 type-tabs">
         <div class="card-header pb-0">
 
@@ -8,7 +8,7 @@
                     <ng-select [items]="typesColumnDefs"
                         [(ngModel)]="selectedCols"
                         [ngModelOptions]="{standalone: true}"
-                        placeholder="Columns"
+                        placeholder="列"
                         appendTo="body"
                         bindLabel="colId"
                         [searchable]="false"
@@ -18,7 +18,7 @@
                     >
                         <ng-template ng-multi-label-tmp>
                             <div class="ng-value">
-                                <span class="ng-value-label">{{selectedCols.length - 2}} selected...</span>
+                                <span class="ng-value-label">{{selectedCols.length - 2}} 已选...</span>
                             </div>
                         </ng-template>
                     </ng-select>
@@ -26,21 +26,21 @@
             </div>
 
             <div style="display: flex; align-items: center; padding-bottom: 0; padding-top: 0.5rem;">
-                <div class="ml-3 mr-3" title="More options"
+                <div class="ml-3 mr-3" title="更多选项"
                     style="cursor: pointer;"
                     (click)="expanded = !expanded"
                 >
                     <fa-icon class="mr-1" [icon]='["fas", expanded ? "chevron-up" : "chevron-right"]'></fa-icon>
                 </div>
 
-                <div class="ml-3 mr-3" title="Un/Lock the width of the table columns">
+                <div class="ml-3 mr-3" title="锁定/解锁表格列宽">
                     <fa-icon class="mr-1" [icon]='["fas", lockedWidth ? "lock" : "lock-open"]'></fa-icon>
                     <input type="checkbox" [(ngModel)]="lockedWidth">
                 </div>
 
                 <ul class="nav-tabs mt-auto" [(activeId)]="activeTab" ngbNav #nav="ngbNav">
                     <li [ngbNavItem]="0">
-                        <a ngbNavLink>Types</a>
+                        <a ngbNavLink>类型</a>
                         <ng-template ngbNavContent>
                             <div style="height: 100%; margin-bottom: 20px;">
                                 <ag-grid-angular
@@ -70,11 +70,11 @@
                     </li>
 
                     <li [ngbNavItem]="1">
-                        <a ngbNavLink>Missing Types</a>
+                        <a ngbNavLink>缺失类型</a>
                         <ng-template ngbNavContent>
                             <div style="height: 100%">
                                 <div>
-                                    <span>Missing Types</span>
+                                    <span>缺失类型</span>
                                     <ul>
                                         <li *ngFor="let classname of missingClasses">
                                             {{ classname }}
@@ -85,7 +85,7 @@
                         </ng-template>
                     </li>
                     <li [ngbNavItem]="2" *ngIf="missingTraderItems && missingTraderItems.length">
-                        <a ngbNavLink>Missing Trader Items</a>
+                        <a ngbNavLink>缺失商人物品</a>
                         <ng-template ngbNavContent>
                             <div style="height: 100%">
                                 <div >
@@ -100,7 +100,7 @@
                         </ng-template>
                     </li>
                     <li [ngbNavItem]="3" *ngIf="unknownTraderItems && unknownTraderItems.length">
-                        <a ngbNavLink>Unknown Trader Items</a>
+                        <a ngbNavLink>未知商人物品</a>
                         <ng-template ngbNavContent>
                             <div style="height: 100%">
                                 <div >
@@ -115,7 +115,7 @@
                         </ng-template>
                     </li>
                     <li [ngbNavItem]="4" *ngIf="unknownClasses && unknownClasses.length">
-                        <a ngbNavLink>Unknown Items</a>
+                        <a ngbNavLink>未知物品</a>
                         <ng-template ngbNavContent>
                             <div style="height: 100%">
                                 <div >
@@ -130,7 +130,7 @@
                         </ng-template>
                     </li>
                     <li [ngbNavItem]="5" *ngIf="traderOnlyItems && traderOnlyItems.length">
-                        <a ngbNavLink>Trader Only Items</a>
+                        <a ngbNavLink>仅商人物品</a>
                         <ng-template ngbNavContent>
                             <div style="height: 100%">
                                 <div >
@@ -149,9 +149,9 @@
                 <div class="d-flex ml-auto" style="align-items: center;">
                     <fa-icon class="mr-2" [icon]='["fas", "info"]'></fa-icon>
                     <div style="font-weight: 400; font-size: 65%;">
-                        <div class="mr-2">Shown: {{ shownTypesCount }}</div>
-                        <div>Total Nominal: {{ totalNominal }}</div>
-                        <div>Estimated Nominal: {{ totalEstimatedNominal }}</div>
+                        <div class="mr-2">显示：{{ shownTypesCount }}</div>
+                        <div>总名义值：{{ totalNominal }}</div>
+                        <div>估算名义值：{{ totalEstimatedNominal }}</div>
                     </div>
                 </div>
             </div>
@@ -169,7 +169,7 @@
                             (closed)="validationErrors = []"
                 >
                     <div>
-                        Errors:
+                        错误：
                         <ul style="max-height: 10vh; overflow-y: scroll;">
                             <li *ngFor="let error of validationErrors">
                                 {{ error }}
@@ -187,9 +187,9 @@
                         <div>
                             <button type="button" class="btn btn-success"
                                     (click)="duplicate()"
-                                    title="Duplicate the selected entries"
+                                    title="复制所选条目"
                             >
-                                Duplicate
+                                复制
                             </button>
                         </div>
                         <div class="d-flex flex-row btn-group ml-1 mr-1">
@@ -198,8 +198,8 @@
                                     (ngModelChange)="selectedOpertaion = undefined"
                                     [ngModelOptions]="{standalone: true}"
                             >
-                                <option [disabled]="true" [ngValue]="undefined" *ngIf="selectedOpertaionCol === undefined">Select...</option>
-                                <option [disabled]="true" [ngValue]="null" *ngIf="selectedOpertaionCol === null">Select...</option>
+                                <option [disabled]="true" [ngValue]="undefined" *ngIf="selectedOpertaionCol === undefined">请选择...</option>
+                                <option [disabled]="true" [ngValue]="null" *ngIf="selectedOpertaionCol === null">请选择...</option>
                                 <option *ngFor="let item of typesColumnDefs || []; let idx = index"
                                         [ngValue]="item"
                                         [selected]="idx === 0"
@@ -211,8 +211,8 @@
                                     [(ngModel)]="selectedOpertaion"
                                     [ngModelOptions]="{standalone: true}"
                             >
-                                <option [disabled]="true" [ngValue]="undefined" *ngIf="selectedOpertaion === undefined">Select...</option>
-                                <option [disabled]="true" [ngValue]="null" *ngIf="selectedOpertaion === null">Select...</option>
+                                <option [disabled]="true" [ngValue]="undefined" *ngIf="selectedOpertaion === undefined">请选择...</option>
+                                <option [disabled]="true" [ngValue]="null" *ngIf="selectedOpertaion === null">请选择...</option>
 
                                 <option *ngFor="let item of selectedOpertaionCol?.operations || []; let idx = index"
                                         [ngValue]="item"
@@ -230,9 +230,9 @@
                             <button type="button" class="btn btn-success"
                                     [disabled]="!selectedOpertaionCol || !selectedOpertaion"
                                     (click)="changeAttr(changeInput.value)"
-                                    title="Execute the operation"
+                                    title="执行操作"
                             >
-                                Exec
+                                执行
                             </button>
                         </div>
                     </div>
@@ -240,23 +240,23 @@
                         <button type="button" class="btn btn-success ml-1 mr-1"
                                 (click)="validate(true)"
                         >
-                            Validate
+                            校验
                         </button>
                         <button type="button" class="btn btn-success ml-1 mr-1"
                                 (click)="csvExport()"
                         >
-                            CSV Export
+                            CSV 导出
                         </button>
                         <button type="button" class="btn btn-success ml-1 mr-1"
                                 [disabled]="!configForm.form.valid"
                                 (click)="downloadFiles()"
                         >
-                            Download
+                            下载
                         </button>
                     </div>
                     <div class="d-flex flex-row">
                         <div class="d-flex flex-row ml-1 mr-1" style="align-items: center;">
-                            <label class="form-label" style="white-space: nowrap;">Create Backup</label>
+                            <label class="form-label" style="white-space: nowrap;">创建备份</label>
                             <input type="checkbox" class="form-control form-control-sm mx-1"
                                    [(ngModel)]="withBackup"
                                    [ngModelOptions]="{standalone: true}"
@@ -264,7 +264,7 @@
                             >
                         </div>
                         <div class="d-flex flex-row ml-1 mr-1" style="align-items: center;">
-                            <label class="form-label" style="white-space: nowrap;">Restart Server</label>
+                            <label class="form-label" style="white-space: nowrap;">重启服务器</label>
                             <input type="checkbox" class="form-control form-control-sm mx-1"
                                    [(ngModel)]="withRestart"
                                    [ngModelOptions]="{standalone: true}"
@@ -275,13 +275,13 @@
                                 [disabled]="!configForm.form.valid || submitting"
                         >
                             <fa-icon *ngIf="submitting" [icon]='["fas", "spinner"]' [classes]="['fa-spin']"></fa-icon>
-                            Submit
+                            提交
                         </button>
                         <button type="button" class="btn btn-primary ml-1 mr-1"
                                 (click)="resetClicked()"
                                 [disabled]="submitting"
                         >
-                            Reset
+                            重置
                         </button>
                     </div>
                 </div>

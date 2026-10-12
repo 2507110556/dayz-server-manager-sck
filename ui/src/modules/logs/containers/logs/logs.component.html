@@ -1,16 +1,16 @@
 <sb-layout-dashboard>
-    <sb-dashboard-head title="Logs" [hideBreadcrumbs]="false"></sb-dashboard-head>
+    <sb-dashboard-head title="日志" [hideBreadcrumbs]="false"></sb-dashboard-head>
     <sb-card background="h-100">
         <div class="card-header p-0 log-tabs">
             <ul class="nav-tabs" [(activeId)]="activeTab" [animation]="false" ngbNav #nav="ngbNav">
                 <li [ngbNavItem]="1" [routerLink]="'rpt'">
-                    <a ngbNavLink><fa-icon class="mr-1" [icon]='["fas", "clipboard-list"]'></fa-icon>RPT Logs</a>
+                    <a ngbNavLink><fa-icon class="mr-1" [icon]='["fas", "clipboard-list"]'></fa-icon>RPT 日志</a>
                 </li>
                 <li [ngbNavItem]="2" [routerLink]="'adm'">
-                    <a ngbNavLink><fa-icon class="mr-1" [icon]='["fas", "clipboard-list"]'></fa-icon>ADM Logs</a>
+                    <a ngbNavLink><fa-icon class="mr-1" [icon]='["fas", "clipboard-list"]'></fa-icon>ADM 日志</a>
                 </li>
                 <li [ngbNavItem]="3" [routerLink]="'script'">
-                    <a ngbNavLink><fa-icon class="mr-1" [icon]='["fas", "clipboard-list"]'></fa-icon>Script Logs</a>
+                    <a ngbNavLink><fa-icon class="mr-1" [icon]='["fas", "clipboard-list"]'></fa-icon>脚本日志</a>
                 </li>
             </ul>
         </div>

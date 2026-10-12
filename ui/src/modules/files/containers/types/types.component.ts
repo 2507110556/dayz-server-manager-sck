@@ -173,7 +173,7 @@ export class TypesComponent implements OnInit {
     }
 
     public async onSubmit(): Promise<void> {
-        if (!confirm('Submit?')) {
+        if (!confirm('确定提交？')) {
             return;
         }
         if (this.loading || this.submitting) return;
@@ -191,19 +191,19 @@ export class TypesComponent implements OnInit {
                 }
                 this.outcomeBadge = {
                     success: true,
-                    message: 'Submitted successfully',
+                    message: '提交成功',
                 };
             } catch (e: any) {
                 console.error(e);
                 this.outcomeBadge = {
                     success: false,
-                    message: `Failed to submit: ${e.message}`,
+                    message: `提交失败：${e.message}`,
                 };
             }
         } else {
             this.outcomeBadge = {
                 success: false,
-                message: `Failed to submit: Validation Errors`,
+                message: `提交失败：校验错误`,
             };
         }
 
@@ -215,7 +215,7 @@ export class TypesComponent implements OnInit {
     }
 
     public resetClicked(): void {
-        if (confirm('Reset?')) {
+        if (confirm('确定重置？')) {
             void this.resetWrapper();
         }
     }
@@ -273,7 +273,7 @@ export class TypesComponent implements OnInit {
             console.error(`Failed to load limits files`, e);
             this.outcomeBadge = {
                 success: false,
-                message: `Failed to load limits files`,
+                message: `加载 limits 文件失败`,
             };
         }
 
@@ -445,7 +445,7 @@ export class TypesComponent implements OnInit {
             console.error(`Failed to load types files`, e);
             this.outcomeBadge = {
                 success: false,
-                message: `Failed to load types files`,
+                message: `加载 types 文件失败`,
             };
         }
 
@@ -675,7 +675,7 @@ export class TypesComponent implements OnInit {
         if (result && showSuccess) {
             this.outcomeBadge = {
                 success: true,
-                message: 'No errors found',
+                message: '未发现错误',
             };
         }
 

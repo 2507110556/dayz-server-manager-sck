@@ -1,8 +1,8 @@
 <sb-layout-dashboard>
-    <sb-dashboard-head title="Settings" [hideBreadcrumbs]="false"></sb-dashboard-head>
+    <sb-dashboard-head title="设置" [hideBreadcrumbs]="false"></sb-dashboard-head>
     <sb-card>
         <div class="card-header">
-            <fa-icon class="mr-1" [icon]='["fas", "cogs"]'></fa-icon>Settings
+            <fa-icon class="mr-1" [icon]='["fas", "cogs"]'></fa-icon>设置
         </div>
         <div class="card-body" *ngIf="!loading">
             <ngb-alert  *ngIf="outcomeBadge"
@@ -11,24 +11,24 @@
                 {{ outcomeBadge.message }}
             </ngb-alert>
             <form (ngSubmit)="onSubmit()" #configForm="ngForm">
-                <strong>General</strong>
+                <strong>基础</strong>
                 <hr>
                 <div class="row spaced">
                     <div class="col-md-12">
                         <div class="form-group">
-                            <label for="name">Instance ID</label>
+                            <label for="name">实例 ID</label>
                             <pre class="small text-muted">
                                 {{ schema.properties.instanceId.description }}
                             </pre>
                             <input type="text" class="form-control" id="instanceId" required
                                 [(ngModel)]="config.instanceId" name="instanceId" #instanceId="ngModel">
                             <div [hidden]="instanceId.valid || instanceId.pristine" class="alert alert-danger">
-                                Instance ID is required
+                                实例 ID 为必填项
                             </div>
                         </div>
 
                         <div class="form-group">
-                            <label for="logLevel">Log Level</label>
+                            <label for="logLevel">日志级别</label>
                             <pre class="small text-muted">
                                 {{ schema.properties.loglevel.description }}
                             </pre>
@@ -45,7 +45,7 @@
                     </div>
                 </div>
 
-                <strong>Admins</strong>
+                <strong>管理员</strong>
                 <hr>
                 <div class="row spaced">
                     <div class="col-md-12">
@@ -66,7 +66,7 @@
                 <div class="row spaced">
                     <div class="col-md-12">
                         <div class="form-group">
-                            <label for="discordBotToken">Discord Bot Token</label>
+                            <label for="discordBotToken">Discord 机器人令牌</label>
                             <pre class="small text-muted">
                                 {{ schema.properties.discordBotToken.description }}
                             </pre>
@@ -76,7 +76,7 @@
                     </div>
                     <div class="col-md-12">
                         <div class="form-group">
-                            <label>Discord Channels</label>
+                            <label>Discord 频道</label>
                             <pre class="small text-muted">
                                 {{ schema.properties.discordChannels.description }}
                             </pre>
@@ -90,7 +90,7 @@
                                 </div>
                                 <div class="col-md-1">
                                     <button class="btn btn-danger form-control" type="button" (click)="config.discordChannels.splice(idx, 1)">
-                                        <fa-icon class="mr-1" [icon]='["fas", "trash"]'></fa-icon>Delete Channel
+                                        <fa-icon class="mr-1" [icon]='["fas", "trash"]'></fa-icon>删除频道
                                     </button>
                                 </div>
                                 <div class="col-md-4">
@@ -99,23 +99,23 @@
                                                 [(ngModel)]="chan.mode[modeidx]"
                                                 [ngModelOptions]="{standalone: true}"
                                         >
-                                            <option [ngValue]="'admin'">Admin</option>
-                                            <option [ngValue]="'rcon'">RCon</option>
-                                            <option [ngValue]="'notification'">Notification</option>
+                                            <option [ngValue]="'admin'">管理员</option>
+                                            <option [ngValue]="'rcon'">RCON</option>
+                                            <option [ngValue]="'notification'">通知</option>
                                         </select>
                                         <button class="btn btn-danger form-control" type="button" (click)="chan.mode.splice(modeidx, 1)">
-                                            <fa-icon class="mr-1" [icon]='["fas", "trash"]'></fa-icon>Delete Mode
+                                            <fa-icon class="mr-1" [icon]='["fas", "trash"]'></fa-icon>删除模式
                                         </button>
                                     </div>
                                     <button type="button" class="btn form-control" (click)="chan.mode.push('admin')">
-                                        <fa-icon class="mr-1" [icon]='["fas", "plus-circle"]'></fa-icon>Add Mode
+                                        <fa-icon class="mr-1" [icon]='["fas", "plus-circle"]'></fa-icon>添加模式
                                     </button>
                                 </div>
 
                             </div>
                         </div>
                         <button type="button" class="btn form-control" (click)="config.discordChannels.push({channel: '', mode: 'admin'})">
-                            <fa-icon class="mr-1" [icon]='["fas", "plus-circle"]'></fa-icon>Add Channel
+                            <fa-icon class="mr-1" [icon]='["fas", "plus-circle"]'></fa-icon>添加频道
                         </button>
                     </div>
                 </div>
@@ -125,7 +125,7 @@
                 <div class="row spaced">
                     <div class="col-md-12">
                         <div class="form-group">
-                            <label for="rconPassword">RCon Password</label>
+                            <label for="rconPassword">RCON 密码</label>
                             <pre class="small text-muted">
                                 {{ schema.properties.rconPassword.description }}
                             </pre>
@@ -135,7 +135,7 @@
                     </div>
                     <div class="col-md-12">
                         <div class="form-group">
-                            <label for="serverPath">Server Path</label>
+                            <label for="serverPath">服务器路径</label>
                             <pre class="small text-muted">
                                 {{ schema.properties.serverPath.description }}
                             </pre>
@@ -145,7 +145,7 @@
                     </div>
                     <div class="col-md-12">
                         <div class="form-group">
-                            <label for="serverPort">Server Port</label>
+                            <label for="serverPort">服务器端口</label>
                             <pre class="small text-muted">
                                 {{ schema.properties.serverPort.description }}
                             </pre>
@@ -155,7 +155,7 @@
                     </div>
                     <div class="col-md-12">
                         <div class="form-group">
-                            <label for="serverExe">Server EXE</label>
+                            <label for="serverExe">服务器可执行文件</label>
                             <pre class="small text-muted">
                                 {{ schema.properties.serverExe.description }}
                             </pre>
@@ -167,7 +167,7 @@
                         <div class="form-check">
                             <input type="checkbox" class="form-check-input" id="experimentalServer" [(ngModel)]="config.experimentalServer"
                             name="experimentalServer">
-                            <label class="form-check-label" for="experimentalServer">Experimental Server</label>
+                            <label class="form-check-label" for="experimentalServer">实验性服务器</label>
                             <pre class="small text-muted">
                                 {{ schema.properties.experimentalServer.description }}
                             </pre>
@@ -175,7 +175,7 @@
                     </div>
                     <div class="col-md-12">
                         <div class="form-group">
-                            <label for="battleyePath">BattlEye Path</label>
+                            <label for="battleyePath">BattlEye 路径</label>
                             <pre class="small text-muted">
                                 {{ schema.properties.battleyePath.description }}
                             </pre>
@@ -185,7 +185,7 @@
                     </div>
                     <div class="col-md-12">
                         <div class="form-group">
-                            <label for="profilesPath">Profiles Path</label>
+                            <label for="profilesPath">配置文件路径</label>
                             <pre class="small text-muted">
                                 {{ schema.properties.profilesPath.description }}
                             </pre>
@@ -195,7 +195,7 @@
                     </div>
                     <div class="col-md-12">
                         <div class="form-group">
-                            <label for="serverCfgPath">ServerCfg Path</label>
+                            <label for="serverCfgPath">服务器配置路径</label>
                             <pre class="small text-muted">
                                 {{ schema.properties.serverCfgPath.description }}
                             </pre>
@@ -205,12 +205,12 @@
                     </div>
                 </div>
 
-                <strong>Mods</strong>
+                <strong>模组</strong>
                 <hr>
                 <div class="row spaced">
                     <div class="col-md-12">
                         <div class="form-group">
-                            <label>Steam WS Mods (Mod IDs)</label>
+                            <label>Steam 工坊模组（模组 ID）</label>
                             <pre class="small text-muted">
                                 {{ schema.properties.steamWsMods.description }}
                             </pre>
@@ -224,7 +224,7 @@
                                 </div>
                                 <div class="col-md-11" *ngIf="!config.steamWsMods[idx]['includes']">
                                     <div class="prefixed-input">
-                                        <label>Name</label>
+                                        <label>名称</label>
                                         <input  type="text"
                                                 class="form-control"
                                                 [(ngModel)]="config.steamWsMods[idx]['name']"
@@ -232,7 +232,7 @@
                                         >
                                     </div>
                                     <div class="prefixed-input">
-                                        <label>WorkshopId</label>
+                                        <label>工坊 ID</label>
                                         <input  type="text"
                                                 class="form-control"
                                                 [(ngModel)]="config.steamWsMods[idx]['workshopId']"
@@ -240,7 +240,7 @@
                                         >
                                     </div>
                                     <div class="prefixed-input">
-                                        <label>Disabled?</label>
+                                        <label>禁用？</label>
                                         <input  type="checkbox"
                                                 class="form-control"
                                                 [(ngModel)]="config.steamWsMods[idx]['disabled']"
@@ -256,12 +256,12 @@
                             </div>
                         </div>
                         <button type="button" class="btn form-control" (click)="config.steamWsMods.push({name: '', workshopId: ''})">
-                            <fa-icon class="mr-1" [icon]='["fas", "plus-circle"]'></fa-icon>Add Entry
+                            <fa-icon class="mr-1" [icon]='["fas", "plus-circle"]'></fa-icon>添加条目
                         </button>
                     </div>
                     <div class="col-md-12">
                         <div class="form-group">
-                            <label>Local Mods (Paths)</label>
+                            <label>本地模组（路径）</label>
                             <pre class="small text-muted">
                                 {{ schema.properties.localMods.description }}
                             </pre>
@@ -281,12 +281,12 @@
                             </div>
                         </div>
                         <button type="button" class="btn form-control" (click)="config.localMods.push('')">
-                            <fa-icon class="mr-1" [icon]='["fas", "plus-circle"]'></fa-icon>Add Entry
+                            <fa-icon class="mr-1" [icon]='["fas", "plus-circle"]'></fa-icon>添加条目
                         </button>
                     </div>
                     <div class="col-md-12">
                         <div class="form-group">
-                            <label>Server Mods (Paths)</label>
+                            <label>服务器模组（路径）</label>
                             <pre class="small text-muted">
                                 {{ schema.properties.serverMods.description }}
                             </pre>
@@ -306,12 +306,12 @@
                             </div>
                         </div>
                         <button type="button" class="btn form-control" (click)="config.serverMods.push('')">
-                            <fa-icon class="mr-1" [icon]='["fas", "plus-circle"]'></fa-icon>Add Entry
+                            <fa-icon class="mr-1" [icon]='["fas", "plus-circle"]'></fa-icon>添加条目
                         </button>
                     </div>
                 </div>
 
-                <strong>DayZ StartFlags</strong>
+                <strong>DayZ 启动参数</strong>
                 <hr>
                 <div class="row spaced">
                     <div class="col">
@@ -379,12 +379,12 @@
                     </div>
                 </div>
 
-                <strong>Backups</strong>
+                <strong>备份</strong>
                 <hr>
                 <div class="row spaced">
                     <div class="col-md-8">
                         <div class="form-group">
-                            <label for="backupPath">Backup Path</label>
+                            <label for="backupPath">备份路径</label>
                             <pre class="small text-muted">
                                 {{ schema.properties.backupPath.description }}
                             </pre>
@@ -394,7 +394,7 @@
                     </div>
                     <div class="col-md-4">
                         <div class="form-group">
-                            <label for="backupMaxAge">Max Backup Age in Days</label>
+                            <label for="backupMaxAge">备份最大保留天数</label>
                             <pre class="small text-muted">
                                 {{ schema.properties.backupMaxAge.description }}
                             </pre>
@@ -409,7 +409,7 @@
                 <div class="row spaced">
                     <div class="col-md-6">
                         <div class="form-group">
-                            <label for="steamUsername">Steam User</label>
+                            <label for="steamUsername">Steam 用户名</label>
                             <pre class="small text-muted">
                                 {{ schema.properties.steamUsername.description }}
                             </pre>
@@ -419,7 +419,7 @@
                     </div>
                     <div class="col-md-6">
                         <div class="form-group">
-                            <label for="steamPassword">Steam Password</label>
+                            <label for="steamPassword">Steam 密码</label>
                             <pre class="small text-muted">
                                 {{ schema.properties.steamPassword.description }}
                             </pre>
@@ -429,7 +429,7 @@
                     </div>
                     <div class="col-md-12">
                         <div class="form-group">
-                            <label for="steamCmdPath">Steam CMD Path</label>
+                            <label for="steamCmdPath">SteamCMD 路径</label>
                             <pre class="small text-muted">
                                 {{ schema.properties.steamCmdPath.description }}
                             </pre>
@@ -439,7 +439,7 @@
                     </div>
                     <div class="col-md-12">
                         <div class="form-group">
-                            <label for="steamWorkshopPath">Steam WS Path</label>
+                            <label for="steamWorkshopPath">Steam 工坊路径</label>
                             <pre class="small text-muted">
                                 {{ schema.properties.steamWorkshopPath.description }}
                             </pre>
@@ -449,7 +449,7 @@
                     </div>
                     <div class="col-md-12">
                         <div class="form-group">
-                            <label for="steamMetaPath">Steam Meta Path</label>
+                            <label for="steamMetaPath">Steam 元数据路径</label>
                             <pre class="small text-muted">
                                 {{ schema.properties.steamMetaPath.description }}
                             </pre>
@@ -461,42 +461,42 @@
                         <div class="form-check">
                             <input type="checkbox" class="form-check-input" id="updateServerOnStartup" [(ngModel)]="config.updateServerOnStartup"
                             name="updateServerOnStartup">
-                            <label class="form-check-label" for="updateServerOnStartup">Update Server on StartUp</label>
+                            <label class="form-check-label" for="updateServerOnStartup">启动时更新服务器</label>
                         </div>
                     </div>
                     <div class="col-md-4">
                         <div class="form-check">
                             <input type="checkbox" class="form-check-input" id="updateServerBeforeServerStart" [(ngModel)]="config.updateServerBeforeServerStart"
                             name="updateServerBeforeServerStart">
-                            <label class="form-check-label" for="updateServerBeforeServerStart">Update Server Before Server Start</label>
+                            <label class="form-check-label" for="updateServerBeforeServerStart">服务器启动前更新服务器</label>
                         </div>
                     </div>
                     <div class="col-md-4">
                         <div class="form-check">
                             <input type="checkbox" class="form-check-input" id="validateServerAfterUpdate" [(ngModel)]="config.validateServerAfterUpdate"
                             name="validateServerAfterUpdate">
-                            <label class="form-check-label" for="validateServerAfterUpdate">Validate Server After Update</label>
+                            <label class="form-check-label" for="validateServerAfterUpdate">更新后校验服务器</label>
                         </div>
                     </div>
                     <div class="col-md-4">
                         <div class="form-check">
                             <input type="checkbox" class="form-check-input" id="updateModsOnStartup" [(ngModel)]="config.updateModsOnStartup"
                             name="updateModsOnStartup">
-                            <label class="form-check-label" for="updateModsOnStartup">Update Mods on StartUp</label>
+                            <label class="form-check-label" for="updateModsOnStartup">启动时更新模组</label>
                         </div>
                     </div>
                     <div class="col-md-4">
                         <div class="form-check">
                             <input type="checkbox" class="form-check-input" id="updateModsBeforeServerStart" [(ngModel)]="config.updateModsBeforeServerStart"
                             name="updateModsBeforeServerStart">
-                            <label class="form-check-label" for="updateModsBeforeServerStart">Update Mods Before Server Start</label>
+                            <label class="form-check-label" for="updateModsBeforeServerStart">服务器启动前更新模组</label>
                         </div>
                     </div>
                     <div class="col-md-4">
                         <div class="form-check">
                             <input type="checkbox" class="form-check-input" id="validateModsAfterUpdate" [(ngModel)]="config.validateModsAfterUpdate"
                             name="validateModsAfterUpdate">
-                            <label class="form-check-label" for="validateModsAfterUpdate">Validate Mods After Update</label>
+                            <label class="form-check-label" for="validateModsAfterUpdate">更新后校验模组</label>
                         </div>
                     </div>
 
@@ -504,20 +504,20 @@
                         <div class="form-check">
                             <input type="checkbox" class="form-check-input" id="linkModDirs" [(ngModel)]="config.linkModDirs"
                             name="linkModDirs">
-                            <label class="form-check-label" for="linkModDirs">Link Mod Dirs</label>
+                            <label class="form-check-label" for="linkModDirs">链接模组目录</label>
                         </div>
                     </div>
                     <div class="col-md-6">
                         <div class="form-check">
                             <input  type="checkbox" class="form-check-input" id="copyModDeepCompare"
                                     [(ngModel)]="config.copyModDeepCompare" name="copyModDeepCompare">
-                            <label for="copyModDeepCompare">Copy Mod Deep Compare</label>
+                            <label for="copyModDeepCompare">模组深度对比复制</label>
                         </div>
                     </div>
 
                     <div class="col-md-12">
                         <div class="form-group">
-                            <label for="updateModsMaxBatchSize">Mod Update Batch Size</label>
+                            <label for="updateModsMaxBatchSize">模组更新批量大小</label>
                             <pre class="small text-muted">
                                 {{ schema.properties.updateModsMaxBatchSize.description }}
                             </pre>
@@ -527,7 +527,7 @@
                     </div>
                     <div class="col-md-12">
                         <div class="form-group">
-                            <label for="updateModsMaxBatchFileSize">Mod Update Max Batch Filesize</label>
+                            <label for="updateModsMaxBatchFileSize">模组更新最大批量文件大小</label>
                             <pre class="small text-muted">
                                 {{ schema.properties.updateModsMaxBatchFileSize.description }}
                             </pre>
@@ -538,7 +538,7 @@
 
                 </div>
 
-                <strong>Events</strong>
+                <strong>事件</strong>
                 <hr>
                 <div class="row spaced">
                     <div class="col-md-12">
@@ -546,7 +546,7 @@
                     </div>
                 </div>
 
-                <strong>Hooks</strong>
+                <strong>钩子</strong>
                 <hr>
                 <div class="row spaced">
                     <div class="col-md-12">
@@ -554,7 +554,7 @@
                     </div>
                 </div>
 
-                <strong>Metrics</strong>
+                <strong>指标</strong>
                 <hr>
                 <div class="row spaced">
                     <div class="col-md-12">
@@ -562,7 +562,7 @@
                     </div>
                 </div>
 
-                <strong>Server.cfg</strong>
+                <strong>服务器配置</strong>
                 <hr>
                 <div class="row spaced">
                     <div class="col-md-12" *ngFor="let prop of (serverCfgProps || [])">
@@ -600,13 +600,13 @@
                         </div>
                         <div *ngIf="prop.custom">
                             <button type="submit" class="btn btn-danger">
-                                <fa-icon class="mr-1" [icon]='["fas", "trash"]'></fa-icon>Delete Field
+                                <fa-icon class="mr-1" [icon]='["fas", "trash"]'></fa-icon>删除字段
                             </button>
                         </div>
                     </div>
                     <div class="col-md-12">
                         <div class="form-group">
-                            <label for="cfg.mission">Mission</label>
+                            <label for="cfg.mission">任务</label>
                             <pre class="small text-muted">
                                 {{ schema.definitions.ServerCfg.properties.Missions.description }}
                             </pre>
@@ -622,7 +622,7 @@
                     <div class="col-md-9">
                         <div style="display: flex; flex-direction: row; flex-grow: 1;">
                             <div class="form-group" style="display: flex; flex-direction: row;">
-                                <label for="customServerCfgField">Custom Field Name</label>
+                                <label for="customServerCfgField">自定义字段名</label>
                                 <input  type="text" class="form-control ml-3"
                                         id="customServerCfgField" name="customServerCfgField"
                                         #customServerCfgField
@@ -630,10 +630,10 @@
                             </div>
                             <div style="display: flex; flex-direction: row;">
                                 <button type="button" class="btn form-control ml-3" (click)="addCustomServerCfgEntry(customServerCfgField.value, 'string'); customServerCfgField.value = ''">
-                                    <fa-icon class="mr-1" [icon]='["fas", "plus-circle"]'></fa-icon>Add Custom Text Entry
+                                    <fa-icon class="mr-1" [icon]='["fas", "plus-circle"]'></fa-icon>添加自定义文本字段
                                 </button>
                                 <button type="button" class="btn form-control ml-3" (click)="addCustomServerCfgEntry(customServerCfgField.value, 'number'); customServerCfgField.value = ''">
-                                    <fa-icon class="mr-1" [icon]='["fas", "plus-circle"]'></fa-icon>Add Custom Number Entry
+                                    <fa-icon class="mr-1" [icon]='["fas", "plus-circle"]'></fa-icon>添加自定义数字字段
                                 </button>
                             </div>
                         </div>
@@ -641,8 +641,8 @@
                     <div class="col-md-3">
                         <div style="display: flex; flex-direction: row; justify-content: space-between;">
                             <button type="submit" class="btn btn-success"
-                                [disabled]="!configForm.form.valid">Submit</button>
-                            <button type="button" class="btn btn-secondary" (click)="reset()">Reset</button>
+                                [disabled]="!configForm.form.valid">提交</button>
+                            <button type="button" class="btn btn-secondary" (click)="reset()">重置</button>
                         </div>
                     </div>
                 </div>

@@ -19,14 +19,14 @@ export const ROUTES: Routes = [
         canActivate: [],
         component: LogsComponent,
         data: {
-            title: 'Logs',
+            title: '日志',
             breadcrumbs: [
                 {
-                    text: 'Dashboard',
+                    text: '仪表盘',
                     link: '/dashboard',
                 },
                 {
-                    text: 'Logs',
+                    text: '日志',
                     active: true,
                 },
             ],
@@ -42,15 +42,15 @@ export const ROUTES: Routes = [
                 canActivate: [],
                 component: LogMonitorComponent,
                 data: {
-                    title: 'RPT Logs',
+                    title: 'RPT 日志',
                     logType: LogTypeEnum.RPT,
                     breadcrumbs: [
                         {
-                            text: 'Dashboard',
+                            text: '仪表盘',
                             link: '/dashboard',
                         },
                         {
-                            text: 'Logs',
+                            text: '日志',
                         },
                         {
                             text: 'RPT',
@@ -64,15 +64,15 @@ export const ROUTES: Routes = [
                 canActivate: [],
                 component: LogMonitorComponent,
                 data: {
-                    title: 'ADM Logs',
+                    title: 'ADM 日志',
                     logType: LogTypeEnum.ADM,
                     breadcrumbs: [
                         {
-                            text: 'Dashboard',
+                            text: '仪表盘',
                             link: '/dashboard',
                         },
                         {
-                            text: 'Logs',
+                            text: '日志',
                         },
                         {
                             text: 'ADM',
@@ -86,18 +86,18 @@ export const ROUTES: Routes = [
                 canActivate: [],
                 component: LogMonitorComponent,
                 data: {
-                    title: 'Script Logs',
+                    title: '脚本日志',
                     logType: LogTypeEnum.SCRIPT,
                     breadcrumbs: [
                         {
-                            text: 'Dashboard',
+                            text: '仪表盘',
                             link: '/dashboard',
                         },
                         {
-                            text: 'Logs',
+                            text: '日志',
                         },
                         {
-                            text: 'Script',
+                            text: '脚本',
                             active: true,
                         },
                     ],

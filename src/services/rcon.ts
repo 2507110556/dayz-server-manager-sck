@@ -248,11 +248,6 @@ export class RCON extends IStatefulService {
         this.stateListener?.off();
         this.stateListener = undefined;
 
-        const serverCfg = await this.manager.getServerCfg();
-        if (serverCfg?.BattlEye === 0) {
-            return;
-        }
-
         // get free listening port
         const openListeningPort = await new Promise<number | null>((r) => {
             const tempSocket = dgram.createSocket('udp4');
